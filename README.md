@@ -4,4 +4,9 @@ In this repo I will add all of my projects listed on my resume and also any furt
 
 
 Prog2 Folder: Triple Sort Project//Completed March 2020
+
+
 StackedQueueLL: Linked List implemented as a Queue// Completed Feb 2020
+
+
+Assembly Langauge Projects: All Assemybly Language projects for the x86 MASM language
