@@ -1,7 +1,4 @@
 ;Allan Sur
-;CS237
-;ExtraCredit Part 2
-
 .386
 .model flat,stdcall
 .stack 4096
