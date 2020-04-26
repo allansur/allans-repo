@@ -2,4 +2,14 @@ Assembly Language Projects:
 
 These projects have detailed comments into what happens for each project.
 
-For the **Encryption** project that is "topsecretfile".
+For the **Encryption** project that is :"topsecretfile".
+
+gcd.asm: Finding the Greatest Common Divisor : 
+
+prog4.asm: Finds the GCD of two input numbers.
+
+prog 3: Hexadecimal Boolean Calculator
+
+Prog2: Fibbonacci Sequence (in hexadecimal) generator. *30 spots, can be extended*
+
+Prog 1: reverses a String
