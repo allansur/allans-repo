@@ -1,7 +1,4 @@
-//Allan Sur 821444631
-//CS 310 TTH 8:00AM
-//Professor Muralidharan
-//PA2
+//Allan Sur
 package Sorting;
 import java.util.*;
 
