@@ -1,0 +1,80 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww16600\viewh17920\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 README.txt\
+\
+CS530 TTH 19:00 Fall 2020 \
+Assignment #3 Simple Parser\
+Allan Sur     821444631,  cssc3022\
+Aung Lin Htet 823702029,  cssc3041\
+\
+Files Included: \
+	test.l,\
+	test.y,\
+	Makefile, \
+	scanme.txt\
+\
+Compile Instructions:\
+1. First navigate to the directory with the files in it\
+2. Enter \'93make\'94 into the command line\
+\
+Operation: \
+1. Enter \'93./parser \'91testing_file\'92.txt\'94 where you can call whatever the name of your testing file is.\
+2. Results will be printed to the console.\
+\
+Clean Instructions:\
+1. After successfully compiling and running the program, enter \'93make clean\'94 to clear the terminal and clean all temporary files.\
+\
+BNF Grammar:\
+\
+Our specified grammar is as follows\
+\
+<char> ::= [a-zA-Z]\
+<number> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 \
+<operation> ::= % | * | - | + | /\
+<close_p> ::= )\
+<open_p> ::= (\
+<semi_c> ::= ;\
+<nxt_lin> ::= \'93\\n\'94\
+<equ> ::= =\
+\
+\
+<id> ::= <char>\
+	| <id> <char>\
+	| <id> <number>\
+\
+<expression> ::= <id> <operation> <id>\
+	| <open_p> <expression> <close_p>\
+	| <id> <operation> <open_p> <expression> <close_p>\
+	| <open_p> <operation> <close_p>\
+\
+Because assignment can only be done 1 way there is only 1 rule for it to be considered an assignment\
+\
+<assignment> ::= <id> <equ> <exp> <semi_c>\
+\
+<prog> ::= <prog> <asssignment> <nxt_lin>\
+	| <prog> <error> <nxt_lin>\
+	| <prog> <expression> <nxt_lin>\
+	| <expression> <nxt_lin>\
+	| <asssignment> <nxt_lin>\
+	| <prog> <nxt_lin>\
+	| <error> <nxt_lin>\
+	| <nxt_lin>\
+\
+Discovered Bugs:\
+1. Although in the .lex file we have specified for ID that [A-Za-z][A-Za-z0-9]* this must be an ID in this order, we are still finding that for some odd reason, our parser is still identifying variables such was \'932two\'94 as valid when it should not be as by the rule format he regular expression. From the rule, we should be having any character from a-zA-Z come BEFORE any digit at all to be valid, yet when giving the valid/invalid for a statement with \'932two\'94 or an integer in the front of the characters first, it still returns valid instead of invalid.\
+\
+2. The reason for the errors are not always printed out, and when they are, occasionally we do not get the correct error from the program as to the reason why the error is being given, although we do now that all invalid cases when specified by the program are correctly evaluated as invalid 100% of the time.\
+\
+3. I don\'92t know if this is really a bug, however we could not get valid/invalid to print on the same line as the output lines from the testing file. We put them below each one with a line clearly indicating which was which.\
+\
+Lessons Learned:\
+The major lesson that we learned during this project was just how grammar and syntax for a language are developed. Having programmed for the past 4+ years, it never occurred to me to wonder just how exactly a programming language was able to parse and detect keywords and assignments rather than just keeping them as a string. The idea behind the grammar and lexical analysis of the project was really interesting for that fact and also because a system like this is never usually something that is brought up in general when practicing for coding interviews and it was a real cool experience being able to deep dive into one of the generally \'93lesser known\'94 areas of a CS programming language. Another thing that I learned was just how complex this system was. For a programming language like Python for example. Python is a dynamic language and is written different from most other common programming languages like Java and C++. So the grammar and syntax system of Python would have to be a lot more complex than that of a more \'93strict\'94 language such as the prior. All in all, this was a cool project that was able to highlight some of the intricacies of developing and creating a language to function correctly and also showed me the use of a system for something that\'92s often overlooked.\
+\
+\
+\
+}
